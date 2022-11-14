@@ -3,7 +3,7 @@ import React, { ButtonHTMLAttributes, FC } from "react";
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button: FC<ButtonProps> = ({ onClick, children, className, type }) => {
-  let bg = "";
+  let bg = "bg-red-500";
   if (children == "") {
     bg = "bg-white";
   }
@@ -11,10 +11,7 @@ const Button: FC<ButtonProps> = ({ onClick, children, className, type }) => {
     <div className="h-12 w-12">
       <button
         className={
-          "w-full h-full rounded-md text-blue-700 bg-red-500 text-2xl font-extrabold " +
-          className +
-          " " +
-          bg
+          "w-full h-full rounded-md text-blue-700 text-2xl font-extrabold " + bg
         }
         onClick={onClick}
         type={type}

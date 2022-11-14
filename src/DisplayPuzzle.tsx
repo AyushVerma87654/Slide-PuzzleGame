@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { Children, FC } from "react";
 import Button from "./Button";
 
 type DisplayPuzzleProps = {
@@ -12,10 +12,15 @@ const DisplayPuzzle: FC<DisplayPuzzleProps> = ({
   handleButtonClick,
   index,
 }) => {
+  let bg = "";
+  if (number == "") {
+    bg = "bg-white";
+  }
   return (
     <Button
       onClick={() => {
         handleButtonClick(index);
+        const className = bg;
       }}
     >
       {number}
