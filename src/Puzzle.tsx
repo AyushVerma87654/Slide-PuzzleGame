@@ -69,9 +69,9 @@ const Puzzle: FC<PuzzleProps> = () => {
 
   return (
     <div className="flex flex-col items-center justify-center py-4">
-      <div className="h-28">
+      <div className="h-28 mt-4">
         {result && (
-          <div className="text-3xl px-8 py-4 bg-green-500 text-fuchsia-700 font-bold">
+          <div className="text-xl px-8 py-4 bg-green-500 text-fuchsia-700 font-bold">
             You have solved the puzzle
           </div>
         )}
