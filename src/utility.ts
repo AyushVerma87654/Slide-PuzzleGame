@@ -1,3 +1,5 @@
+import { createContext } from "react";
+
 export const cal = (
   num: number,
   string: number,
@@ -100,4 +102,24 @@ export const calculate = (num: number, string: number) => {
   }
 
   return false;
+};
+
+export const numbers = () => {
+  let a: number[] = [];
+  while (a.length < 8) {
+    let x = Math.round(Math.random() * 10);
+    if (x == 0 || x == 10 || x == 9) {
+      continue;
+    }
+    let token = true;
+    a.map((item) => {
+      if (x == item) {
+        token = false;
+      }
+    });
+    if (token) {
+      a = [...a, x];
+    }
+  }
+  return [...a, ""];
 };

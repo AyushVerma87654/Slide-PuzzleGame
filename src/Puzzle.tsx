@@ -1,12 +1,13 @@
 import React, { FC, useEffect, useState } from "react";
 import Button from "./Button";
 import DisplayPuzzle from "./DisplayPuzzle";
-import { cal, calculate } from "./utility";
+import { cal, calculate, numbers } from "./utility";
 
 type PuzzleProps = {};
 
 const Puzzle: FC<PuzzleProps> = () => {
-  const a = [3, 5, 8, 7, 6, 2, 1, 4, ""];
+  const a = numbers();
+  console.log(a);
   const output = [1, 2, 3, 4, 5, 6, 7, 8, ""];
   const [totalNumbers, setTotalNumbers] = useState(a);
   const [result, setResult] = useState(false);
