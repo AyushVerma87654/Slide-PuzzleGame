@@ -12,15 +12,10 @@ const DisplayPuzzle: FC<DisplayPuzzleProps> = ({
   handleButtonClick,
   index,
 }) => {
-  let bg = "";
-  if (number == "") {
-    bg = "bg-white";
-  }
   return (
     <Button
       onClick={() => {
         handleButtonClick(index);
-        const className = bg;
       }}
     >
       {number}

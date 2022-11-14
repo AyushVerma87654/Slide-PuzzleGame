@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import Button from "./Button";
 import DisplayPuzzle from "./DisplayPuzzle";
+import { cal, calculate } from "./utility";
 
 type PuzzleProps = {};
 
@@ -20,6 +21,7 @@ const Puzzle: FC<PuzzleProps> = () => {
         }
       }
       const swap = calculate(num, index);
+      cal(num, index, totalNumbers, setTotalNumbers);
       if (swap) {
         const t = newarray[num];
         newarray[num] = newarray[index];
@@ -27,31 +29,6 @@ const Puzzle: FC<PuzzleProps> = () => {
         setTotalNumbers(newarray);
       }
     }
-  };
-
-  const calculate = (num: number, string: number) => {
-    if (num == 0 || num == 3 || num == 6) {
-      if (string == num + 1 || string == num - 3 || string == num + 3) {
-        return true;
-      }
-    }
-    if (num == 1 || num == 4 || num == 7) {
-      if (
-        string == num - 1 ||
-        string == num + 1 ||
-        string == num - 3 ||
-        string == num + 3
-      ) {
-        return true;
-      }
-    }
-    if (num == 2 || num == 5 || num == 8) {
-      if (string == num - 1 || string == num - 3 || string == num + 3) {
-        return true;
-      }
-    }
-
-    return false;
   };
 
   useEffect(() => {
