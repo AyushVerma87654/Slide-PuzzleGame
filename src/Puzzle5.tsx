@@ -3,11 +3,12 @@ import Button from "./Button";
 import DisplayPuzzle from "./DisplayPuzzle";
 import Result from "./Result";
 import { cal2, calculate2, numbers2 } from "./utility/puzzle4";
+import { numbers5 } from "./utility/puzzle5";
 
-type Puzzle2Props = {};
+type Puzzle5Props = {};
 
-const Puzzle2: FC<Puzzle2Props> = () => {
-  const a = numbers2();
+const Puzzle5: FC<Puzzle5Props> = () => {
+  const a = numbers5();
   const output1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ""];
   const output2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 14, 13, ""];
   const [totalNumbers, setTotalNumbers] = useState(a);
@@ -71,7 +72,7 @@ const Puzzle2: FC<Puzzle2Props> = () => {
   }, [totalNumbers]);
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center pb-4">
       <div className="h-20 mt-5 flex flex-col items-center justify-center">
         <div className="h-10 w-40">
           <Button onClick={handleReloadClick} type="button">
@@ -89,7 +90,7 @@ const Puzzle2: FC<Puzzle2Props> = () => {
       {result && <Result />}
       {!result && (
         <div className="mt-2">
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-5 gap-3">
             {totalNumbers.map((item, index) => (
               <DisplayPuzzle
                 key={item}
@@ -105,4 +106,4 @@ const Puzzle2: FC<Puzzle2Props> = () => {
   );
 };
 
-export default Puzzle2;
+export default Puzzle5;
