@@ -38,7 +38,7 @@ const Puzzle5: FC<Puzzle5Props> = () => {
   const handleReloadClick = () => {
     setResult(false);
     setReverse(false);
-    setTotalNumbers(numbers2());
+    setTotalNumbers(numbers5());
   };
 
   useEffect(() => {
@@ -72,8 +72,8 @@ const Puzzle5: FC<Puzzle5Props> = () => {
   }, [totalNumbers]);
 
   return (
-    <div className="flex flex-col items-center justify-center pb-4">
-      <div className="h-20 mt-5 flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
+      <div className="h-20 mt-2 flex flex-col items-center justify-center">
         <div className="h-10 w-40">
           <Button onClick={handleReloadClick} type="button">
             Reload
@@ -89,7 +89,7 @@ const Puzzle5: FC<Puzzle5Props> = () => {
       </div>
       {result && <Result />}
       {!result && (
-        <div className="mt-2">
+        <div>
           <div className="grid grid-cols-5 gap-3">
             {totalNumbers.map((item, index) => (
               <DisplayPuzzle
