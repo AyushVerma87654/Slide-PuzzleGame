@@ -1,13 +1,15 @@
 import React, { FC, useEffect, useState } from "react";
 import Button from "./Button";
 import DisplayPuzzle from "./DisplayPuzzle";
-import { cal, calculate, numbers } from "./utility";
+import Result from "./Result";
+import { cal, calculate, numbers } from "./utility/puzzle3";
 
 type PuzzleProps = {};
 
 const Puzzle: FC<PuzzleProps> = () => {
   const a = numbers();
-  const output = [1, 2, 3, 4, 5, 6, 7, 8, ""];
+  const output1 = [1, 2, 3, 4, 5, 6, 7, 8, ""];
+  const output2 = [1, 2, 3, 4, 5, 6, 8, 7, ""];
   const [totalNumbers, setTotalNumbers] = useState(a);
   const [result, setResult] = useState(false);
 
@@ -31,11 +33,18 @@ const Puzzle: FC<PuzzleProps> = () => {
     }
   };
 
+  const handleReloadClick = () => {
+    setResult(false);
+    setTotalNumbers(numbers());
+  };
+
   useEffect(() => {
     let token = 1;
     for (let i = 0; i < totalNumbers.length; i++) {
-      if (totalNumbers[i] != output[i]) {
-        token = 0;
+      if (totalNumbers[i] != output1[i]) {
+        if (totalNumbers[i] != output2[i]) {
+          token = 0;
+        }
       }
     }
     if (token == 1) {
@@ -47,23 +56,25 @@ const Puzzle: FC<PuzzleProps> = () => {
   return (
     <div className="flex flex-col items-center justify-center py-4">
       <div className="h-28 mt-4">
-        {result && (
-          <div className="text-xl px-8 py-4 bg-green-500 text-fuchsia-700 font-bold">
-            You have solved the puzzle
-          </div>
-        )}
-        {!result && <div></div>}
+        <div className="h-10 w-40">
+          <Button onClick={handleReloadClick} type="button">
+            Reload
+          </Button>
+        </div>
       </div>
-      <div className="grid grid-cols-3 gap-3">
-        {totalNumbers.map((item, index) => (
-          <DisplayPuzzle
-            key={item}
-            number={item}
-            index={index}
-            handleButtonClick={handleButtonClick}
-          />
-        ))}
-      </div>
+      {result && <Result />}
+      {!result && (
+        <div className="grid grid-cols-3 gap-3">
+          {totalNumbers.map((item, index) => (
+            <DisplayPuzzle
+              key={item}
+              number={item}
+              index={index}
+              handleButtonClick={handleButtonClick}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
