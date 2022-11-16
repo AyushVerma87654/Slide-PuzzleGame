@@ -3,8 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "./Footer";
 import MainPage from "./MainPage";
 import NavBar from "./NavBar";
-import Puzzle from "./Puzzle";
-import Puzzle2 from "./Puzzle2";
+import Puzzle3 from "./Puzzle3";
+import Puzzle4 from "./Puzzle4";
+import Puzzle5 from "./Puzzle5";
 
 const App = () => {
   return (
@@ -12,8 +13,9 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route index element={<MainPage />} />
-        <Route path="/puzzle" element={<Puzzle />} />
-        <Route path="/puzzle2" element={<Puzzle2 />} />
+        <Route path="/puzzle3" element={<Puzzle3 />} />
+        <Route path="/puzzle4" element={<Puzzle4 />} />
+        <Route path="/puzzle5" element={<Puzzle5 />} />
       </Routes>
       <Footer />
     </div>

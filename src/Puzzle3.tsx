@@ -4,9 +4,9 @@ import DisplayPuzzle from "./DisplayPuzzle";
 import Result from "./Result";
 import { cal, calculate, numbers } from "./utility/puzzle3";
 
-type PuzzleProps = {};
+type Puzzle3Props = {};
 
-const Puzzle: FC<PuzzleProps> = () => {
+const Puzzle3: FC<Puzzle3Props> = () => {
   const a = numbers();
   const output1 = [1, 2, 3, 4, 5, 6, 7, 8, ""];
   const output2 = [1, 2, 3, 4, 5, 6, 8, 7, ""];
@@ -79,4 +79,4 @@ const Puzzle: FC<PuzzleProps> = () => {
   );
 };
 
-export default Puzzle;
+export default Puzzle3;
