@@ -15,7 +15,6 @@ export const numbers2 = () => {
       a = [...a, x];
     }
   }
-  console.log(a);
   return [...a, ""];
 };
 

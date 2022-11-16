@@ -12,6 +12,7 @@ const Puzzle2: FC<Puzzle2Props> = () => {
   const output2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 14, 13, ""];
   const [totalNumbers, setTotalNumbers] = useState(a);
   const [result, setResult] = useState(false);
+  const [reverse, setReverse] = useState(false);
 
   const handleButtonClick = (num: number) => {
     if (!result) {
@@ -22,10 +23,7 @@ const Puzzle2: FC<Puzzle2Props> = () => {
           index = i;
         }
       }
-      console.log("index", index);
-      console.log("num", num);
       const swap = calculate2(num, index);
-      console.log("swap", swap);
       cal2(num, index, totalNumbers, setTotalNumbers);
       if (swap) {
         const t = newarray[num];
@@ -38,8 +36,25 @@ const Puzzle2: FC<Puzzle2Props> = () => {
 
   const handleReloadClick = () => {
     setResult(false);
+    setReverse(false);
     setTotalNumbers(numbers2());
   };
+
+  useEffect(() => {
+    let token = 1;
+    for (let i = 0; i < 12; i++) {
+      if (totalNumbers[i] != output1[i]) {
+        token = 0;
+      }
+    }
+    if (token == 1) {
+      const a = totalNumbers.slice(12, 15);
+      const x = a.toString();
+      if (x == "13,15,14" || x == "14,13,15") {
+        setReverse(true);
+      }
+    }
+  }, [totalNumbers]);
 
   useEffect(() => {
     let token = 1;
@@ -54,16 +69,22 @@ const Puzzle2: FC<Puzzle2Props> = () => {
       setResult(true);
     }
   }, [totalNumbers]);
-  console.log(result);
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="h-20 mt-5">
+      <div className="h-20 mt-5 flex flex-col items-center justify-center">
         <div className="h-10 w-40">
           <Button onClick={handleReloadClick} type="button">
             Reload
           </Button>
         </div>
+        {reverse && !result && (
+          <div className="p-2">
+            <div className="text-fuchsia-700 font-bold p-1">
+              Solve the last as 15 14 13
+            </div>
+          </div>
+        )}
       </div>
       {result && <Result />}
       {!result && (
