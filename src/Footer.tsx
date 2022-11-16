@@ -3,7 +3,7 @@ import Heading from "./Heading";
 
 const Footer = () => {
   return (
-    <div className="h-20 w-full">
+    <div className="fixed bottom-0 h-20 w-full">
       <Heading className="h-full text-blue-500 bg-black text-xl">
         Powered & Created By Ayush
       </Heading>
