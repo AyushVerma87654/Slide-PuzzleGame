@@ -94,15 +94,15 @@ const Puzzle5: FC<Puzzle5Props> = () => {
 
   useEffect(() => {
     let token = 1;
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 21; i++) {
       if (totalNumbers[i] != output1[i]) {
         token = 0;
       }
     }
     if (token == 1) {
-      const a = totalNumbers.slice(12, 15);
+      const a = totalNumbers.slice(21, 24);
       const x = a.toString();
-      if (x == "13,15,14" || x == "14,13,15") {
+      if (x == "22,24,23" || x == "23,22,24") {
         setReverse(true);
       }
     }
@@ -133,7 +133,7 @@ const Puzzle5: FC<Puzzle5Props> = () => {
         {reverse && !result && (
           <div className="p-2">
             <div className="text-fuchsia-700 font-bold p-1">
-              Solve the last as 15 14 13
+              Solve the last as 21 24 23 22
             </div>
           </div>
         )}
