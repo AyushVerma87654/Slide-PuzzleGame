@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import Button from "./Button";
 import DisplayPuzzle from "./DisplayPuzzle";
 import Result from "./Result";
-import { cal2, calculate2, numbers2 } from "./utility/puzzle4";
+import { cal3, calculate2, numbers2 } from "./utility/puzzle4";
 
 type Puzzle4Props = {};
 
@@ -24,7 +24,7 @@ const Puzzle4: FC<Puzzle4Props> = () => {
         }
       }
       const swap = calculate2(num, index);
-      cal2(num, index, totalNumbers, setTotalNumbers);
+      cal3(num, index, totalNumbers, setTotalNumbers);
       if (swap) {
         const t = newarray[num];
         newarray[num] = newarray[index];

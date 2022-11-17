@@ -2,15 +2,66 @@ import React, { FC, useEffect, useState } from "react";
 import Button from "./Button";
 import DisplayPuzzle from "./DisplayPuzzle";
 import Result from "./Result";
-import { cal2, calculate2, numbers2 } from "./utility/puzzle4";
-import { numbers5 } from "./utility/puzzle5";
+import { cal3, calculate5, numbers5 } from "./utility/puzzle5";
 
 type Puzzle5Props = {};
 
 const Puzzle5: FC<Puzzle5Props> = () => {
   const a = numbers5();
-  const output1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ""];
-  const output2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 14, 13, ""];
+  const output1 = [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    "",
+  ];
+  const output2 = [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    24,
+    23,
+    22,
+    "",
+  ];
   const [totalNumbers, setTotalNumbers] = useState(a);
   const [result, setResult] = useState(false);
   const [reverse, setReverse] = useState(false);
@@ -24,8 +75,8 @@ const Puzzle5: FC<Puzzle5Props> = () => {
           index = i;
         }
       }
-      const swap = calculate2(num, index);
-      cal2(num, index, totalNumbers, setTotalNumbers);
+      const swap = calculate5(num, index);
+      cal3(num, index, totalNumbers, setTotalNumbers);
       if (swap) {
         const t = newarray[num];
         newarray[num] = newarray[index];

@@ -1,8 +1,8 @@
 export const numbers = () => {
   let a: number[] = [];
   while (a.length < 8) {
-    let x = Math.round(Math.random() * 10);
-    if (x == 0 || x == 10 || x == 9) {
+    let x = Math.round(Math.random() * 8);
+    if (x == 0) {
       continue;
     }
     let token = true;
