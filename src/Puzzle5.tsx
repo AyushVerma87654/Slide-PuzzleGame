@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import Button from "./Button";
 import DisplayPuzzle from "./DisplayPuzzle";
 import Result from "./Result";
+import Time from "./Time";
 import { cal3, calculate5, numbers5 } from "./utility/puzzle5";
 
 type Puzzle5Props = {};
@@ -64,9 +65,25 @@ const Puzzle5: FC<Puzzle5Props> = () => {
   ];
   const [totalNumbers, setTotalNumbers] = useState(a);
   const [result, setResult] = useState(false);
+  const [timeStart, setTimeStart] = useState(false);
   const [reverse, setReverse] = useState(false);
 
+  useEffect(() => {
+    if (totalNumbers.length != 0 && a.length != 0) {
+      let token = 0;
+      for (let i = 0; i < totalNumbers.length; i++) {
+        if (totalNumbers[i] == a[i]) {
+          token += 1;
+        }
+      }
+      if (token != 9) {
+        setResult(false);
+      }
+    }
+  }, [totalNumbers, result == undefined]);
+
   const handleButtonClick = (num: number) => {
+    setTimeStart(true);
     if (!result) {
       let index = 0;
       let newarray = [...totalNumbers];
@@ -89,6 +106,7 @@ const Puzzle5: FC<Puzzle5Props> = () => {
   const handleReloadClick = () => {
     setResult(false);
     setReverse(false);
+    setTimeStart(false);
     setTotalNumbers(numbers5());
   };
 
@@ -119,16 +137,18 @@ const Puzzle5: FC<Puzzle5Props> = () => {
     }
     if (token == 1) {
       setResult(true);
+      setTimeStart(false);
     }
   }, [totalNumbers]);
 
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="h-20 mt-2 flex flex-col items-center justify-center">
-        <div className="h-10 w-40">
+        <div className="flex gap-4">
           <Button onClick={handleReloadClick} type="button">
             Reload
           </Button>
+          <Time stop={result} start={timeStart} />
         </div>
         {reverse && !result && (
           <div className="p-2">

@@ -9,7 +9,7 @@ const Button: FC<ButtonProps> = ({ onClick, children, className, type }) => {
   }
   let width = "w-12";
   if (type == "button") {
-    width = "w-40";
+    width = "w-28";
   }
   return (
     <div className={"h-12 " + width}>
