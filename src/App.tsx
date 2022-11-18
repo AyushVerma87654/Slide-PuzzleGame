@@ -9,14 +9,16 @@ import Puzzle5 from "./Puzzle5";
 
 const App = () => {
   return (
-    <div>
+    <div className="flex flex-col h-screen">
       <NavBar />
-      <Routes>
-        <Route index element={<MainPage />} />
-        <Route path="/puzzle3" element={<Puzzle3 />} />
-        <Route path="/puzzle4" element={<Puzzle4 />} />
-        <Route path="/puzzle5" element={<Puzzle5 />} />
-      </Routes>
+      <div className="grow">
+        <Routes>
+          <Route index element={<MainPage />} />
+          <Route path="/puzzle3" element={<Puzzle3 />} />
+          <Route path="/puzzle4" element={<Puzzle4 />} />
+          <Route path="/puzzle5" element={<Puzzle5 />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );
