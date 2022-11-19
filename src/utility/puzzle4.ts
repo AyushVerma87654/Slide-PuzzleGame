@@ -1,4 +1,4 @@
-export const numbers2 = () => {
+export const numbers2: any = () => {
   let a: number[] = [];
   while (a.length < 15) {
     let x = Math.round(Math.random() * 15);
@@ -33,8 +33,8 @@ export const check = (a: number[]) => {
       }
     }
   }
-  console.log("Inversion", t);
-  console.log("Array", a);
+  // console.log("Inversion", t);
+  // console.log("Array", a);
 
   if (t % 2 == 0) {
     return true;
