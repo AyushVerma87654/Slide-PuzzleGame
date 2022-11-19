@@ -15,7 +15,32 @@ export const numbers5 = () => {
       a = [...a, x];
     }
   }
-  return [...a, ""];
+  const result = check(a);
+  if (result) {
+    return [...a, ""];
+  } else {
+    return numbers5();
+  }
+};
+
+export const check = (a: (string | number)[]) => {
+  let t = 0;
+  for (let j = 0; j < a.length - 1; j++) {
+    const x = a[j];
+    for (let i = j + 1; i < a.length; i++) {
+      if (x > a[i]) {
+        t++;
+      }
+    }
+  }
+  console.log("Inversion", t);
+  console.log("Array", a);
+
+  if (t % 2 == 0) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 export const calculate5 = (num: number, string: number) => {
@@ -96,25 +121,6 @@ export const short = (
   totalNumbers: (number | string)[],
   setTotalNumbers: (a: (number | string)[]) => void
 ) => {
-  // 0   1   2   3   4
-  // 5   6   7   8   9
-  // 10  11  12  13  14
-  // 15  16  17  18  19
-  // 20  21  22  23  24
-
-  // 0   20
-  // 20   0
-  // 5   20
-  // 20  5
-  // 10  20
-  // 20  10
-
-  // 5   15
-  // 15  5
-  // 0   15
-  // 15  0
-  // 0   10
-  // 10  0
   if (string == first && num == last) {
     let array = [...totalNumbers];
     array[string] = array[string + x];

@@ -15,8 +15,38 @@ export const numbers = () => {
       a = [...a, x];
     }
   }
-  return [...a, ""];
+  const result = check(a);
+  if (result) {
+    return [...a, ""];
+  } else {
+    return numbers();
+  }
 };
+
+export const check = (a: number[]) => {
+  let t = 0;
+  for (let j = 0; j < a.length - 1; j++) {
+    const x = a[j];
+    for (let i = j + 1; i < a.length; i++) {
+      if (x > a[i]) {
+        t++;
+      }
+    }
+  }
+  console.log("Inversion", t);
+  console.log("Array", a);
+
+  if (t % 2 == 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+// 1 8 2 4 3 7 6 5 6+1+2+1
+// 8, 2, 7, 6, 5, 3, 1, 4
+
+// 7+1+5+4+3+1
 
 export const calculate = (num: number, string: number) => {
   if (num == 0 || num == 3 || num == 6) {

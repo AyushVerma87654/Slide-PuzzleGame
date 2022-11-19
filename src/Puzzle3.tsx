@@ -3,15 +3,15 @@ import Button from "./Button";
 import DisplayPuzzle from "./DisplayPuzzle";
 import Result from "./Result";
 import Time from "./Time";
-import { cal, calculate, numbers } from "./utility/puzzle3";
+import { cal, calculate, check, numbers } from "./utility/puzzle3";
 
 type Puzzle3Props = {};
 
 const Puzzle3: FC<Puzzle3Props> = () => {
-  const a = numbers();
-  const output1 = [1, 2, 3, 4, 5, 6, 7, 8, ""];
-  const output2 = [1, 2, 3, 4, 5, 6, 8, 7, ""];
-  const [totalNumbers, setTotalNumbers] = useState(a);
+  const output = [1, 2, 3, 4, 5, 6, 7, 8, ""];
+  const [totalNumbers, setTotalNumbers] = useState<(string | number)[]>(
+    numbers()
+  );
   const [timeStart, setTimeStart] = useState(false);
   const [result, setResult] = useState(false);
 
@@ -45,10 +45,8 @@ const Puzzle3: FC<Puzzle3Props> = () => {
   useEffect(() => {
     let token = 1;
     for (let i = 0; i < totalNumbers.length; i++) {
-      if (totalNumbers[i] != output1[i]) {
-        if (totalNumbers[i] != output2[i]) {
-          token = 0;
-        }
+      if (totalNumbers[i] != output[i]) {
+        token = 0;
       }
     }
     if (token == 1) {
