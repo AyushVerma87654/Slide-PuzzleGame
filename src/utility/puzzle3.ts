@@ -1,4 +1,4 @@
-export const numbers = () => {
+export const numbers: any = () => {
   let a: number[] = [];
   while (a.length < 8) {
     let x = Math.round(Math.random() * 8);
@@ -33,8 +33,8 @@ export const check = (a: number[]) => {
       }
     }
   }
-  console.log("Inversion", t);
-  console.log("Array", a);
+  // console.log("Inversion", t);
+  // console.log("Array", a);
 
   if (t % 2 == 0) {
     return true;
@@ -42,11 +42,6 @@ export const check = (a: number[]) => {
     return false;
   }
 };
-
-// 1 8 2 4 3 7 6 5 6+1+2+1
-// 8, 2, 7, 6, 5, 3, 1, 4
-
-// 7+1+5+4+3+1
 
 export const calculate = (num: number, string: number) => {
   if (num == 0 || num == 3 || num == 6) {
