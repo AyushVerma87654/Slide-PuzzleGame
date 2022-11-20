@@ -3,13 +3,12 @@ import Button from "./Button";
 import DisplayPuzzle from "./DisplayPuzzle";
 import Result from "./Result";
 import Time from "./Time";
-import { cal3, calculate5, check, numbers5 } from "./utility/puzzle5";
+// import { cal5, calculate5, numbers5 } from "./utility/puzzle5";
+import { adjacent, movement, numbers } from "./utility/utility";
 
 type Puzzle5Props = {};
 
 const Puzzle5: FC<Puzzle5Props> = () => {
-  // const resul = check(a);
-  // console.log("result", resul);
   const output = [
     1,
     2,
@@ -38,7 +37,7 @@ const Puzzle5: FC<Puzzle5Props> = () => {
     "",
   ];
   const [totalNumbers, setTotalNumbers] = useState<(string | number)[]>(
-    numbers5()
+    numbers(5)
   );
   const [result, setResult] = useState(false);
   const [timeStart, setTimeStart] = useState(false);
@@ -46,19 +45,22 @@ const Puzzle5: FC<Puzzle5Props> = () => {
   const handleButtonClick = (num: number) => {
     setTimeStart(true);
     if (!result) {
-      let index = 0;
+      let string = 0;
       let newarray = [...totalNumbers];
       for (let i = 0; i < newarray.length; i++) {
         if (newarray[i] == "") {
-          index = i;
+          string = i;
         }
       }
-      const swap = calculate5(num, index);
-      cal3(num, index, totalNumbers, setTotalNumbers);
+      // const swap = calculate5(num, string);
+      const swap = adjacent(num, string, 5);
+      // cal3(num, index, totalNumbers, setTotalNumbers);
+      // cal5(num, string, totalNumbers, setTotalNumbers);
+      movement(num, string, totalNumbers, setTotalNumbers, 5);
       if (swap) {
         const t = newarray[num];
-        newarray[num] = newarray[index];
-        newarray[index] = t;
+        newarray[num] = newarray[string];
+        newarray[string] = t;
         setTotalNumbers(newarray);
       }
     }
@@ -67,7 +69,7 @@ const Puzzle5: FC<Puzzle5Props> = () => {
   const handleReloadClick = () => {
     setResult(false);
     setTimeStart(false);
-    setTotalNumbers(numbers5());
+    setTotalNumbers(numbers(5));
   };
 
   useEffect(() => {

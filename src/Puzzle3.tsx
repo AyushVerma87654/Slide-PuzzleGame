@@ -3,14 +3,15 @@ import Button from "./Button";
 import DisplayPuzzle from "./DisplayPuzzle";
 import Result from "./Result";
 import Time from "./Time";
-import { cal, calculate, check, numbers } from "./utility/puzzle3";
+import { adjacent, movement, numbers } from "./utility/utility";
+// import { cal, calculate, check, numbers } from "./utility/puzzle3";
 
 type Puzzle3Props = {};
 
 const Puzzle3: FC<Puzzle3Props> = () => {
   const output = [1, 2, 3, 4, 5, 6, 7, 8, ""];
   const [totalNumbers, setTotalNumbers] = useState<(string | number)[]>(
-    numbers()
+    numbers(3)
   );
   const [timeStart, setTimeStart] = useState(false);
   const [result, setResult] = useState(false);
@@ -25,8 +26,8 @@ const Puzzle3: FC<Puzzle3Props> = () => {
           index = i;
         }
       }
-      const swap = calculate(num, index);
-      cal(num, index, totalNumbers, setTotalNumbers);
+      const swap = adjacent(num, index, 3);
+      movement(num, index, totalNumbers, setTotalNumbers, 3);
       if (swap) {
         const t = newarray[num];
         newarray[num] = newarray[index];
@@ -38,7 +39,7 @@ const Puzzle3: FC<Puzzle3Props> = () => {
 
   const handleReloadClick = () => {
     setResult(false);
-    setTotalNumbers(numbers());
+    setTotalNumbers(numbers(3));
     setTimeStart(false);
   };
 
