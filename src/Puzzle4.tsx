@@ -3,15 +3,15 @@ import Button from "./Button";
 import DisplayPuzzle from "./DisplayPuzzle";
 import Result from "./Result";
 import Time from "./Time";
-import { cal3, calculate2, numbers2 } from "./utility/puzzle4";
+// import { cal3, calculate2, numbers2 } from "./utility/puzzle4";
+import { adjacent, movement, numbers } from "./utility/utility";
 
 type Puzzle4Props = {};
 
 const Puzzle4: FC<Puzzle4Props> = () => {
-  const a = numbers2();
   const output = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ""];
   const [totalNumbers, setTotalNumbers] = useState<(string | number)[]>(
-    numbers2()
+    numbers(4)
   );
   const [result, setResult] = useState(false);
   const [timeStart, setTimeStart] = useState(false);
@@ -26,8 +26,10 @@ const Puzzle4: FC<Puzzle4Props> = () => {
           index = i;
         }
       }
-      const swap = calculate2(num, index);
-      cal3(num, index, totalNumbers, setTotalNumbers);
+      // const swap = calculate2(num, index);
+      const swap = adjacent(num, index, 4);
+      // cal3(num, index, totalNumbers, setTotalNumbers);
+      movement(num, index, totalNumbers, setTotalNumbers, 4);
       if (swap) {
         const t = newarray[num];
         newarray[num] = newarray[index];
@@ -40,7 +42,7 @@ const Puzzle4: FC<Puzzle4Props> = () => {
   const handleReloadClick = () => {
     setResult(false);
     setTimeStart(false);
-    setTotalNumbers(numbers2());
+    setTotalNumbers(numbers(4));
   };
 
   useEffect(() => {
