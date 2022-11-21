@@ -26,6 +26,16 @@ const DisplayPuzzle: FC<DisplayPuzzleProps> = ({
           {number}
         </Button2>
       )}
+      {hi == 6 && (
+        <Button2
+          type="button"
+          onClick={() => {
+            handleButtonClick(index);
+          }}
+        >
+          {number}
+        </Button2>
+      )}
       {!hi && (
         <Button
           onClick={() => {
