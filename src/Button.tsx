@@ -7,12 +7,14 @@ const Button: FC<ButtonProps> = ({ onClick, children, className, type }) => {
   if (children == "") {
     bg = "bg-white";
   }
-  let width = "w-12";
+  let width = "w-12 h-12";
   if (type == "button") {
-    width = "w-28";
+    width = "w-28 h-12";
+  } else if (type == "submit") {
+    width = "w-28 h-10";
   }
   return (
-    <div className={"h-12 " + width}>
+    <div className={" " + width}>
       <button
         className={
           "w-full h-full rounded-md text-blue-700 text-2xl font-extrabold " + bg
