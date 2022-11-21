@@ -1,9 +1,9 @@
 import React, { FC, useEffect, useState } from "react";
 import Button from "./Button";
 
-type TimeProps = { stop: boolean | undefined; start: boolean };
+type TimeProps = { stop: boolean | undefined; start: boolean; value?: number };
 
-const Time: FC<TimeProps> = ({ stop, start }) => {
+const Time: FC<TimeProps> = ({ stop, start, value }) => {
   const [sec, setSec] = useState(0);
   const [min, setMin] = useState(0);
   const [hour, setHour] = useState(0);
@@ -36,8 +36,18 @@ const Time: FC<TimeProps> = ({ stop, start }) => {
     }
   }, [start, stop]);
 
+  let initial = "text-2xl h-12";
+  if (value) {
+    initial = "text-2xl h-10";
+  }
+
   return (
-    <div className="rounded-md flex items-center justify-center text-blue-700 text-2xl font-extrabold bg-red-500 h-12 w-40">
+    <div
+      className={
+        "rounded-md flex items-center justify-center text-blue-700 font-extrabold bg-red-500 w-40 " +
+        initial
+      }
+    >
       <span>0{hour}:</span>
       {min >= 10 && <span>{min}:</span>}
       {min < 10 && <span>0{min}:</span>}

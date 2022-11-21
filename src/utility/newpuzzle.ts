@@ -7,14 +7,14 @@ export const swap2 = (
 ) => {
   let i = 0;
   let array = [...totalNumbers];
-  console.log(array);
-  console.log("string", string);
-  console.log("x", x);
-  console.log("y", y);
+  // console.log(array);
+  // console.log("string", string);
+  // console.log("x", x);
+  // console.log("y", y);
   array[string] = array[string + ++i * y * x];
   array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = "";
-  console.log(array);
+  // console.log(array);
   setTotalNumbers(array);
 };
 export const swap3 = (
@@ -30,7 +30,7 @@ export const swap3 = (
   array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = "";
-  console.log(array);
+  // console.log(array);
   setTotalNumbers(array);
 };
 export const swap4 = (
@@ -47,7 +47,7 @@ export const swap4 = (
   array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = "";
-  console.log(array);
+  // console.log(array);
   setTotalNumbers(array);
 };
 export const swap5 = (
@@ -101,7 +101,6 @@ export const swap7 = (
   array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = array[string + ++i * y * x];
-  array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = "";
   setTotalNumbers(array);
 };
@@ -115,7 +114,6 @@ export const swap8 = (
   let i = 0;
   let array = [...totalNumbers];
   array[string] = array[string + ++i * y * x];
-  array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = array[string + ++i * y * x];
@@ -144,7 +142,6 @@ export const swap9 = (
   array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = array[string + ++i * y * x];
-  array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = "";
   setTotalNumbers(array);
 };
@@ -158,7 +155,6 @@ export const swap10 = (
   let i = 0;
   let array = [...totalNumbers];
   array[string] = array[string + ++i * y * x];
-  array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = array[string + ++i * y * x];
   array[string + i * y * x] = array[string + ++i * y * x];

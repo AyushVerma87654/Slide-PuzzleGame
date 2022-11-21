@@ -1,5 +1,16 @@
 import { num, set } from "../Models";
-import { swap2, swap3, swap4 } from "./newpuzzle";
+import {
+  swap10,
+  swap11,
+  swap2,
+  swap3,
+  swap4,
+  swap5,
+  swap6,
+  swap7,
+  swap8,
+  swap9,
+} from "./newpuzzle";
 export const numbers: any = (num: number) => {
   let a: number[] = [];
   while (a.length < num * num - 1) {
@@ -115,18 +126,18 @@ export const calculate = (
   if (num < string) {
     direction = -1;
   }
-  console.log("direction", direction);
-  console.log("a,b", num, string);
+  // console.log("direction", direction);
+  // console.log("a,b", num, string);
   const x = (num - string) / value;
   for (let i = 2; i < value; i++) {
     if (num - string == i || string - num == i) {
       swap(num, string, i, 1, direction, array, set);
-      console.log(i);
-      console.log("a,b", num, string);
+      // console.log(i);
+      // console.log("a,b", num, string);
     } else if (x == i || x * -1 == i) {
-      console.log(i);
+      // console.log(i);
       swap(num, string, i, value, direction, array, set);
-      console.log("a,b", num, string);
+      // console.log("a,b", num, string);
     }
   }
 };
@@ -140,6 +151,7 @@ export const swap = (
   array: num,
   set: set
 ) => {
+  // console.log(num, string, swap, next, direction);
   let number = string;
   if (array[num] == "") {
     number = num;
@@ -150,5 +162,19 @@ export const swap = (
     swap3(number, direction, next, array, set);
   } else if (swap == 4) {
     swap4(number, direction, next, array, set);
+  } else if (swap == 5) {
+    swap5(number, direction, next, array, set);
+  } else if (swap == 6) {
+    swap6(number, direction, next, array, set);
+  } else if (swap == 7) {
+    swap7(number, direction, next, array, set);
+  } else if (swap == 8) {
+    swap8(number, direction, next, array, set);
+  } else if (swap == 9) {
+    swap9(number, direction, next, array, set);
+  } else if (swap == 10) {
+    swap10(number, direction, next, array, set);
+  } else if (swap == 11) {
+    swap11(number, direction, next, array, set);
   }
 };
