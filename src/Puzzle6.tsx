@@ -1,53 +1,16 @@
+import { range } from "lodash";
 import React, { FC, useEffect, useState } from "react";
 import Button from "./Button";
 import DisplayPuzzle from "./DisplayPuzzle";
 import Result from "./Result";
 import Time from "./Time";
-// import { cal5, calculate5, numbers5 } from "./utility/puzzle5";
 import { adjacent, movement, numbers } from "./utility/utility";
 
 type Puzzle6Props = {};
 
 const Puzzle6: FC<Puzzle6Props> = () => {
   const which = 6;
-  const output = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
-    19,
-    20,
-    21,
-    22,
-    23,
-    24,
-    25,
-    26,
-    27,
-    28,
-    29,
-    30,
-    31,
-    32,
-    33,
-    34,
-    35,
-    "",
-  ];
+  const output = range(1, which * which);
   const [totalNumbers, setTotalNumbers] = useState<(string | number)[]>(
     numbers(which)
   );
@@ -64,10 +27,7 @@ const Puzzle6: FC<Puzzle6Props> = () => {
           string = i;
         }
       }
-      // const swap = calculate5(num, string);
       const swap = adjacent(num, string, which);
-      // cal3(num, index, totalNumbers, setTotalNumbers);
-      // cal5(num, string, totalNumbers, setTotalNumbers);
       movement(num, string, totalNumbers, setTotalNumbers, which);
       if (swap) {
         const t = newarray[num];

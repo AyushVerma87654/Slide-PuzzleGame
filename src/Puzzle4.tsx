@@ -1,3 +1,4 @@
+import { range } from "lodash";
 import React, { FC, useEffect, useState } from "react";
 import Button from "./Button";
 import DisplayPuzzle from "./DisplayPuzzle";
@@ -9,9 +10,10 @@ import { adjacent, movement, numbers } from "./utility/utility";
 type Puzzle4Props = {};
 
 const Puzzle4: FC<Puzzle4Props> = () => {
-  const output = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ""];
+  const which = 4;
+  const output = range(1, which * which);
   const [totalNumbers, setTotalNumbers] = useState<(string | number)[]>(
-    numbers(4)
+    numbers(which)
   );
   const [result, setResult] = useState(false);
   const [timeStart, setTimeStart] = useState(false);
@@ -27,9 +29,9 @@ const Puzzle4: FC<Puzzle4Props> = () => {
         }
       }
       // const swap = calculate2(num, index);
-      const swap = adjacent(num, index, 4);
+      const swap = adjacent(num, index, which);
       // cal3(num, index, totalNumbers, setTotalNumbers);
-      movement(num, index, totalNumbers, setTotalNumbers, 4);
+      movement(num, index, totalNumbers, setTotalNumbers, which);
       if (swap) {
         const t = newarray[num];
         newarray[num] = newarray[index];
@@ -42,7 +44,7 @@ const Puzzle4: FC<Puzzle4Props> = () => {
   const handleReloadClick = () => {
     setResult(false);
     setTimeStart(false);
-    setTotalNumbers(numbers(4));
+    setTotalNumbers(numbers(which));
   };
 
   useEffect(() => {

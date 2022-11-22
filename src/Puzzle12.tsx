@@ -1,15 +1,15 @@
-import { range } from "lodash";
 import React, { FC, useEffect, useState } from "react";
 import Button from "./Button";
 import DisplayPuzzle from "./DisplayPuzzle";
 import Result from "./Result";
 import Time from "./Time";
+import { range } from "lodash";
 import { adjacent, movement, numbers } from "./utility/utility";
 
-type Puzzle11Props = {};
+type Puzzle12Props = {};
 
-const Puzzle11: FC<Puzzle11Props> = () => {
-  const which = 11;
+const Puzzle12: FC<Puzzle12Props> = () => {
+  const which = 12;
   const output = range(1, which * which);
   const [totalNumbers, setTotalNumbers] = useState<(string | number)[]>(
     numbers(which)
@@ -70,10 +70,10 @@ const Puzzle11: FC<Puzzle11Props> = () => {
       {result && <Result />}
       {!result && (
         <div className="px-2 pt-1">
-          <div className="grid grid-cols-11 gap-1 mb-2">
+          <div className="grid grid-cols-12 gap-1 mb-2">
             {totalNumbers.map((item, index) => (
               <DisplayPuzzle
-                hi={11}
+                hi={12}
                 key={item}
                 number={item}
                 index={index}
@@ -87,4 +87,4 @@ const Puzzle11: FC<Puzzle11Props> = () => {
   );
 };
 
-export default Puzzle11;
+export default Puzzle12;

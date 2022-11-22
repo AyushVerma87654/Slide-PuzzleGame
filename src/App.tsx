@@ -12,6 +12,7 @@ import Puzzle8 from "./Puzzle8";
 import Puzzle9 from "./Puzzle9";
 import Puzzle10 from "./Puzzle10";
 import Puzzle11 from "./Puzzle11";
+import Puzzle12 from "./Puzzle12";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/puzzle9" element={<Puzzle9 />} />
           <Route path="/puzzle10" element={<Puzzle10 />} />
           <Route path="/puzzle11" element={<Puzzle11 />} />
+          <Route path="/puzzle12" element={<Puzzle12 />} />
         </Routes>
       </div>
       <Footer />
