@@ -10,7 +10,7 @@ type Puzzle6Props = {};
 
 const Puzzle6: FC<Puzzle6Props> = () => {
   const which = 6;
-  const output = range(1, which * which);
+  const output = [...range(1, which * which), ""];
   const [totalNumbers, setTotalNumbers] = useState<(string | number)[]>(
     numbers(which)
   );
