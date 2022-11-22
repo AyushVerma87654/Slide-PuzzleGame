@@ -6,7 +6,7 @@ type NavBarProps = {};
 const NavBar: FC<NavBarProps> = () => {
   return (
     <div className="">
-      <Heading className="bg-black text-xl text-blue-500">
+      <Heading className="bg-black text-xl text-blue-500 py-6">
         Welcome to my Puzzle Game...
       </Heading>
     </div>
