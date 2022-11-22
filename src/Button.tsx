@@ -16,13 +16,13 @@ const Button: FC<ButtonProps> = ({ onClick, children, className, type }) => {
   }
   if (className == "11") {
     down = "text-sm";
-    upper = "w-9 h-7";
+    upper = "w-7 h-7";
   } else if (className == "10") {
     down = "text-sm";
     upper = "w-7 h-7";
   } else if (className == "12") {
     down = "text-sm";
-    upper = "w-9 h-6";
+    upper = "w-7 h-6";
   } else if (className == "8") {
     down = "text-lg";
     upper = "w-10 h-10";
