@@ -16,7 +16,7 @@ import Puzzle12 from "./Puzzle12";
 
 const App = () => {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="min-h-screen max-h-screen flex flex-col justify-between items-stretch">
       <NavBar />
       <div className="grow">
         <Routes>
