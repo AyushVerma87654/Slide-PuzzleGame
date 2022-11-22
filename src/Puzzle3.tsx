@@ -1,3 +1,4 @@
+import { range } from "lodash";
 import React, { FC, useEffect, useState } from "react";
 import Button from "./Button";
 import DisplayPuzzle from "./DisplayPuzzle";
@@ -9,9 +10,10 @@ import { adjacent, movement, numbers } from "./utility/utility";
 type Puzzle3Props = {};
 
 const Puzzle3: FC<Puzzle3Props> = () => {
-  const output = [1, 2, 3, 4, 5, 6, 7, 8, ""];
+  const which = 3;
+  const output = range(1, which * which);
   const [totalNumbers, setTotalNumbers] = useState<(string | number)[]>(
-    numbers(3)
+    numbers(which)
   );
   const [timeStart, setTimeStart] = useState(false);
   const [result, setResult] = useState(false);
@@ -26,8 +28,8 @@ const Puzzle3: FC<Puzzle3Props> = () => {
           index = i;
         }
       }
-      const swap = adjacent(num, index, 3);
-      movement(num, index, totalNumbers, setTotalNumbers, 3);
+      const swap = adjacent(num, index, which);
+      movement(num, index, totalNumbers, setTotalNumbers, which);
       if (swap) {
         const t = newarray[num];
         newarray[num] = newarray[index];
@@ -39,7 +41,7 @@ const Puzzle3: FC<Puzzle3Props> = () => {
 
   const handleReloadClick = () => {
     setResult(false);
-    setTotalNumbers(numbers(3));
+    setTotalNumbers(numbers(which));
     setTimeStart(false);
   };
 

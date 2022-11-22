@@ -7,17 +7,37 @@ const Button: FC<ButtonProps> = ({ onClick, children, className, type }) => {
   if (children == "") {
     bg = "bg-white";
   }
-  let width = "w-12 h-12";
+  let upper = "w-12 h-12";
+  let down = "text-2xl";
   if (type == "button") {
-    width = "w-28 h-12";
+    upper = "w-28 h-12";
   } else if (type == "submit") {
-    width = "w-28 h-10";
+    upper = "w-28 h-10";
+  }
+  if (className == "11") {
+    down = "text-sm";
+    upper = "w-9 h-7";
+  } else if (className == "10") {
+    down = "text-sm";
+    upper = "w-7 h-7";
+  } else if (className == "12") {
+    down = "text-sm";
+    upper = "w-9 h-6";
+  } else if (className == "8") {
+    down = "text-lg";
+    upper = "w-10 h-10";
+  } else if (className == "9") {
+    down = "text-lg";
+    upper = "w-9 h-9";
   }
   return (
-    <div className={" " + width}>
+    <div className={upper}>
       <button
         className={
-          "w-full h-full rounded-md text-blue-700 text-2xl font-extrabold " + bg
+          "w-full h-full rounded-md text-blue-700 font-extrabold " +
+          bg +
+          " " +
+          down
         }
         onClick={onClick}
         type={type}
